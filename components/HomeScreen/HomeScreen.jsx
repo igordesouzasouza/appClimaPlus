@@ -45,10 +45,11 @@ export default function HomeScreen() {
           })
     }
     // console.log(value)
+   
   }
   const handleTextDebounce = useCallback(debounce(handleSearch , 120),[])
 
-  const { current, location } = weather; 
+  const {current, location} = weather;
 
 
   return (
@@ -121,15 +122,16 @@ export default function HomeScreen() {
           </Text>
           <View style={tw`space-y-3`}>
             <Text style={tw` text-center text-white text-7xl font-bold`}>
-            {current?.temp_c}&#176;
+            {/* {current?.temp_c} */}
+            28&#176;
             </Text>
             <Text style={tw` text-center text-white text-xl tracking-widest `}>
             {current?.condition?.text}
-            </Text>
+            Parcialmente nublado            </Text>
           </View>
           <View style={tw`flex-row justify-center `}>
-          {/* <Image source={require("../../assets/images/partlycloudy.png")} style={tw`w-48 h-48`} /> */}
-          <Image source={weatherImages[current?.condition?.text]} style={tw`w-48 h-48`}/>
+          <Image source={require("../../assets/images/partlycloudy.png")} style={tw`w-48 h-48`} />
+          {/* <Image source={weatherImages[current?.condition?.text]} style={tw`w-48 h-48`}/> */}
           {/* <Image source={{uri: 'https:'+current?.condition?.icon}} /> */}
           </View>
           
@@ -137,13 +139,13 @@ export default function HomeScreen() {
             <View style={tw`space-x-2 flex-row items-center`}>
                 <Image source={require("../../assets/icons/wind.png")} style={tw`w-6 h-6`} />  
                 <Text style={tw`text-white text-base font-semibold ml-2`}>
-                    {current?.wind_kph}km
+                    {current?.wind_kph}22km
                 </Text>
             </View>
             <View style={tw`space-x-2 flex-row items-center`}>
                 <Image source={require("../../assets/icons/drop.png")} style={tw`w-6 h-6`} />  
                 <Text style={tw`text-white text-base font-semibold ml-2`}>
-                    {current?.humidity}%
+                    {  current?.humidity}23%
                 </Text>
             </View>
             <View style={tw`space-x-2 flex-row items-center`}>
@@ -164,26 +166,16 @@ export default function HomeScreen() {
           </Text>
           </View>
           <ScrollView horizontal contentContainerStyle={{paddingHorizontal: 15}} showsHorizontalScrollIndicator={false} >
-            {
-                weather?.forecast?.forecastday.map((item, index)=>{
-                    let date = new Date(item.date)
-                    let options = {weekday: 'long' };
-                    let dayName = date.toLocaleDateString('pt-BR', options);
-                    dayName.split(',')[0]
-                    return(
-                        <View key={index} style={[tw`flex justify-center items-center w-26 rounded-3xl py-3 space-y-1 mr-4 mb-2`, {backgroundColor: theme.bgWhite(0.15)} ]}>
-                        <Image source={weatherImages[item?.day?.condition?.text]}/>
-                        <Text style={tw`text-white text-base font-medium mt-1 text-center`}>
-                            {dayName}
-                        </Text>
-                        <Text style={tw`text-white text-base font-semibold ml-2`}>
-                        {item?.day?.avgtemp_c}&#176;
-                        </Text>
-                        </View>        
-                    )
-                })  
-            }
-            
+            <View style={[tw`flex justify-center items-center w-26 rounded-3xl py-3 space-y-1 mr-4 mb-2`, {backgroundColor: theme.bgWhite(0.15)} ]}>
+            <Image source={require("../../assets/images/heavyrain.png")} style={tw`w-16 h-16 rounded-3xl`} />
+            <Text style={tw`text-white text-base font-medium mt-1 text-center`}>
+                Segunda
+                Feira
+            </Text>
+            <Text style={tw`text-white text-base font-semibold text-center ml-2`}>
+            26&#176;
+            </Text>
+            </View>
             <View style={[tw`flex justify-center items-center w-26 rounded-3xl py-3 space-y-1 mr-4 mb-2 text-center`, {backgroundColor: theme.bgWhite(0.15)} ]}>
             <Image source={require("../../assets/images/heavyrain.png")} style={tw`w-16 h-16 rounded-3xl`} />
             <Text style={tw`text-white text-base font-medium mt-1 text-center`}>
