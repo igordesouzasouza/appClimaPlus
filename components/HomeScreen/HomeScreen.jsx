@@ -14,25 +14,19 @@ import {
   ScrollView,
 } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {debounce} from "lodash";
 
 
 export default function HomeScreen() {
-  const handleLocation = (loc) => {
-    console.log('location', loc);
-  };
 
+  const handleLocation = (loc)=>{
+    console.log('location' , loc)
+  }
   const [showSearch, toggleSearch] = useState(false);
-  const handleTextDeb = useCallback(debounce(handlesearch, 1200), []);
-  const [locations, setLocations] = useState([1, 2, 3]);
-
-  const handlesearch = (value) => {
-    if (value.length > 2) {
-      fetchLocationTemp({ cityName: value }).then(data => {
-        console.log(data);
-      });
-    }
-  };
+//   const handleTextDeb = useCallback(debounce(handlesearch, 1200), [])
+  const [locations, setLocations] = useState([1,2,3]);
+  const handleSearch = value => {
+    // console.log(value)
+  }
 
 
   return (
