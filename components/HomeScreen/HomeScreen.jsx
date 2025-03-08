@@ -128,15 +128,60 @@ export default function HomeScreen() {
         {/* para os próximos dias  */}
         <View style={tw`space-y-3 mb-2`}>
           <View style={tw`flex-row items-center mx-4 space-x-2`}>
-          <Ionicons name="calendar-outline" size={22} color="white" style={tw`mr-2`}/>
-          <Text style={tw`text-white text-base`}>
+          <Ionicons name="calendar-outline" size={22} color="white" style={tw`mr-2 mb-4`}/>
+          <Text style={tw`text-white text-base mb-4`}>
             Previsão para o dia
           </Text>
           </View>
           <ScrollView horizontal contentContainerStyle={{paddingHorizontal: 15}} showsHorizontalScrollIndicator={false} >
-            <View style={tw`flex justify-center items-center w-26 rounded-3xl py-3 space-y-1 mr-4 `}>
-            <Image source={require("../../assets/images/heavyrain.png")} style={tw`w-16 h-16`} />
+            <View style={[tw`flex justify-center items-center w-26 rounded-3xl py-3 space-y-1 mr-4 mb-2`, {backgroundColor: theme.bgWhite(0.15)} ]}>
+            <Image source={require("../../assets/images/heavyrain.png")} style={tw`w-16 h-16 rounded-3xl`} />
+            <Text style={tw`text-white text-base font-medium mt-1 text-center`}>
+                Segunda
+                Feira
+            </Text>
+            <Text style={tw`text-white text-base font-semibold text-center ml-2`}>
+            26&#176;
+            </Text>
             </View>
+            <View style={[tw`flex justify-center items-center w-26 rounded-3xl py-3 space-y-1 mr-4 mb-2 text-center`, {backgroundColor: theme.bgWhite(0.15)} ]}>
+            <Image source={require("../../assets/images/heavyrain.png")} style={tw`w-16 h-16 rounded-3xl`} />
+            <Text style={tw`text-white text-base font-medium mt-1 text-center`}>
+                Terça {"\n"}
+                Feira
+            </Text>
+            <Text style={tw`text-white text-base font-semibold ml-2`}>
+            26&#176;
+            </Text>
+            </View>
+            <View style={[tw`flex justify-center items-center w-26 rounded-3xl py-3 space-y-1 mr-4 mb-2`, {backgroundColor: theme.bgWhite(0.15)} ]}>
+            <Image source={require("../../assets/images/heavyrain.png")} style={tw`w-16 h-16 rounded-3xl`} />
+            <Text style={tw`text-white text-base font-medium mt-1 text-center`}>
+                Quarta{"\n"}feira
+            </Text>
+            <Text style={tw`text-white text-base font-semibold ml-2`}>
+            26&#176;
+            </Text>
+            </View>
+            <View style={[tw`flex justify-center items-center w-26 rounded-3xl py-3 space-y-1 mr-4 mb-2`, {backgroundColor: theme.bgWhite(0.15)} ]}>
+            <Image source={require("../../assets/images/heavyrain.png")} style={tw`w-16 h-16 rounded-3xl`} />
+            <Text style={tw`text-white text-base font-medium mt-1 text-center`}>
+                Quinta{"\n"}feira
+            </Text>
+            <Text style={tw`text-white text-base font-semibold ml-2`}>
+            26&#176;
+            </Text>
+            </View>
+            <View style={[tw`flex justify-center items-center w-26 rounded-3xl py-3 space-y-1 mr-4 mb-2`, {backgroundColor: theme.bgWhite(0.15)} ]}>
+            <Image source={require("../../assets/images/heavyrain.png")} style={tw`w-16 h-16 rounded-3xl`} />
+            <Text style={tw`text-white text-base font-medium mt-1 text-center`}>
+                Sexta{"\n"}feira
+            </Text>
+            <Text style={tw`text-white text-base font-semibold ml-2`}>
+            26&#176;
+            </Text>
+            </View>
+            
           </ScrollView>
         </View>
       </SafeAreaView>
