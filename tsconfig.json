@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "es2015"],
-    "jsx": "react", // or "react-jsx" for React 17+
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "jsx": "react",
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
@@ -10,6 +13,14 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "src"
-  ]
+    "src/**/*",
+    "app/**/*",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "extends": "expo/tsconfig.base"
 }
