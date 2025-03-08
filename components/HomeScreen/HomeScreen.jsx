@@ -1,6 +1,6 @@
 import "../../app/global.css";
 import tw from "twrnc";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { theme } from "../../theme/index";
 import {
   Image,
@@ -14,15 +14,25 @@ import {
   ScrollView,
 } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {debounce} from "lodash";
 
 
 export default function HomeScreen() {
+  const handleLocation = (loc) => {
+    console.log('location', loc);
+  };
 
-  const handleLocation = (loc)=>{
-    console.log('location' , loc)
-  }
   const [showSearch, toggleSearch] = useState(false);
-  const [locations, setLocations] = useState([1,2,3]);
+  const handleTextDeb = useCallback(debounce(handlesearch, 1200), []);
+  const [locations, setLocations] = useState([1, 2, 3]);
+
+  const handlesearch = (value) => {
+    if (value.length > 2) {
+      fetchLocationTemp({ cityName: value }).then(data => {
+        console.log(data);
+      });
+    }
+  };
 
 
   return (
@@ -48,6 +58,7 @@ export default function HomeScreen() {
           >
             {showSearch ? (
               <TextInput
+              onChangeText={handleTextDeb}
                 placeholder="Search your City or State"
                 placeholderTextColor={"lightgray"}
                 style={tw`pl-6 pb-1 h-10 flex-1 text-base text-white font-medium`}
