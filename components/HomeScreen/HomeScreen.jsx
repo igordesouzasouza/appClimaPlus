@@ -106,7 +106,7 @@ export default function HomeScreen() {
                             style={tw`flex-row items-center border-0 p-3 px-4 mb-1`}>
                                 <Ionicons name="location-outline" size={20} color="black" style={tw`mr-2`}/>
                                 <Text style={tw`text-black text-base font-semibold`}>
-                                    {location?.name}, {location?.country}
+                                    {loc?.name}, {loc?.country}
                                 </Text>
                             </TouchableOpacity>
                         )   
